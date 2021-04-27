@@ -85,3 +85,14 @@ signingConfigs {
         }
     }
 ```
+
+### 2.8 压缩apk
+
+```
+    minifyEnabled false      // 删除无用java 顺便混淆
+```
+
+### 2.9 设置apk打包的名称
+
+用了Hook的方法
+

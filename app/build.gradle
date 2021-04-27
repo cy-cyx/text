@@ -1,3 +1,17 @@
+// 插件的第一种用法
+class TextPlugin implements Plugin<Project> {
+    void apply(Project project) {
+        project.task('textPlugin') {
+            doLast {
+                println 'Hello from the TextPlugin'
+            }
+        }
+    }
+}
+
+// Apply the plugin
+apply plugin: TextPlugin
+
 apply plugin: 'com.android.application'
 
 android {
@@ -27,7 +41,9 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled false      // 删除无用java
+//            shrinkResources = true  // 资源裁剪
+//            zipAlignEnabled = true   // 内存对齐
             applicationIdSuffix ".release"
             signingConfig signingConfigs.releaseConfig
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -75,6 +91,17 @@ android {
             setIgnore(true)
         }
     }
+}
+
+// Hook
+android.applicationVariants.all { variant ->
+    variant.outputs.all {
+        outputFileName = "${variant.flavorName}-v${versionName}-${variant.buildType.name}-build${versionCode}-${releaseTime()}.apk"
+    }
+}
+
+static def releaseTime() {
+    return new Date().format("yyyy.MM.dd", TimeZone.getTimeZone("UTC"))
 }
 
 dependencies {
