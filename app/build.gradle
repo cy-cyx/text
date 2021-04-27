@@ -1,3 +1,5 @@
+import com.plugin.TextPlugin1
+
 // 插件的第一种用法
 class TextPlugin implements Plugin<Project> {
     void apply(Project project) {
@@ -9,8 +11,10 @@ class TextPlugin implements Plugin<Project> {
     }
 }
 
-// Apply the plugin
 apply plugin: TextPlugin
+
+// 第二种用法
+apply plugin: TextPlugin1
 
 apply plugin: 'com.android.application'
 
@@ -102,6 +106,10 @@ android.applicationVariants.all { variant ->
 
 static def releaseTime() {
     return new Date().format("yyyy.MM.dd", TimeZone.getTimeZone("UTC"))
+}
+
+task text(dependsOn: hello) {
+
 }
 
 dependencies {
