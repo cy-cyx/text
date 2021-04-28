@@ -1,0 +1,258 @@
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <compositeConfiguration>\r\n          <compositeBuild compositeDefinitionSource=\"SCRIPT\" />\r\n        </compositeConfiguration>\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 0a897ed381f287acb3a65d9fe1bf750fffdc22dd)
++++ .idea/gradle.xml	(date 1619545959553)
+@@ -1,15 +1,21 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+-        <compositeConfiguration>
+-          <compositeBuild compositeDefinitionSource="SCRIPT" />
+-        </compositeConfiguration>
++        <option name="testRunner" value="PLATFORM" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++            <option value="$PROJECT_DIR$/plugin" />
++          </set>
++        </option>
+         <option name="resolveModulePerSourceSet" value="false" />
+-        <option name="testRunner" value="PLATFORM" />
++        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\n\r\nbuildscript {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n        \r\n    }\r\n    dependencies {\r\n        classpath 'com.android.tools.build:gradle:3.5.2'\r\n        \r\n        // NOTE: Do not place your application dependencies here; they belong\r\n        // in the individual module build.gradle files\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n        \r\n    }\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision 0a897ed381f287acb3a65d9fe1bf750fffdc22dd)
++++ build.gradle	(date 1619546817465)
+@@ -4,11 +4,13 @@
+     repositories {
+         google()
+         jcenter()
+-        
++        maven {
++            url uri('repo')
++        }
+     }
+     dependencies {
+         classpath 'com.android.tools.build:gradle:3.5.2'
+-        
++        classpath 'com.plugin:plugin:1.0.0'
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
+     }
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_7\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 0a897ed381f287acb3a65d9fe1bf750fffdc22dd)
++++ .idea/misc.xml	(date 1619545854979)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: plugin/src/main/groovy/resources/META-INF/gradle-plugin/com.plugin.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+--- plugin/src/main/groovy/resources/META-INF/gradle-plugin/com.plugin.properties	(date 1619546271363)
++++ plugin/src/main/groovy/resources/META-INF/gradle-plugin/com.plugin.properties	(date 1619546271363)
+@@ -0,0 +1,1 @@
++implementation-class=com.plugin.TextPlugin
+\ No newline at end of file
+Index: repo/com/plugin/plugin/1.0.0/plugin-1.0.0.pom.sha1
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- repo/com/plugin/plugin/1.0.0/plugin-1.0.0.pom.sha1	(date 1619546371155)
++++ repo/com/plugin/plugin/1.0.0/plugin-1.0.0.pom.sha1	(date 1619546371155)
+@@ -0,0 +1,1 @@
++4d250e3afd7d87909d1205907c822048b3ec953c
+\ No newline at end of file
+Index: repo/com/plugin/plugin/1.0.0/plugin-1.0.0.pom.md5
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- repo/com/plugin/plugin/1.0.0/plugin-1.0.0.pom.md5	(date 1619546371165)
++++ repo/com/plugin/plugin/1.0.0/plugin-1.0.0.pom.md5	(date 1619546371165)
+@@ -0,0 +1,1 @@
++76f9a3a97d5a1de7390140fb70c65f96
+\ No newline at end of file
+Index: repo/com/plugin/plugin/1.0.0/plugin-1.0.0.pom
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- repo/com/plugin/plugin/1.0.0/plugin-1.0.0.pom	(date 1619546371155)
++++ repo/com/plugin/plugin/1.0.0/plugin-1.0.0.pom	(date 1619546371155)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
++    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
++  <modelVersion>4.0.0</modelVersion>
++  <groupId>com.plugin</groupId>
++  <artifactId>plugin</artifactId>
++  <version>1.0.0</version>
++</project>
+Index: repo/com/plugin/plugin/1.0.0/plugin-1.0.0.jar.sha1
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- repo/com/plugin/plugin/1.0.0/plugin-1.0.0.jar.sha1	(date 1619546371155)
++++ repo/com/plugin/plugin/1.0.0/plugin-1.0.0.jar.sha1	(date 1619546371155)
+@@ -0,0 +1,1 @@
++564f4fa96798199d3911fafeb3359a6e75956c75
+\ No newline at end of file
+Index: plugin/proguard-rules.pro
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- plugin/proguard-rules.pro	(date 1619545931794)
++++ plugin/proguard-rules.pro	(date 1619545931794)
+@@ -0,0 +1,21 @@
++# Add project specific ProGuard rules here.
++# You can control the set of applied configuration files using the
++# proguardFiles setting in build.gradle.
++#
++# For more details, see
++#   http://developer.android.com/guide/developing/tools/proguard.html
++
++# If your project uses WebView with JS, uncomment the following
++# and specify the fully qualified class name to the JavaScript interface
++# class:
++#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
++#   public *;
++#}
++
++# Uncomment this to preserve the line number information for
++# debugging stack traces.
++#-keepattributes SourceFile,LineNumberTable
++
++# If you keep the line number information, uncomment this to
++# hide the original source file name.
++#-renamesourcefileattribute SourceFile
+\ No newline at end of file
+Index: settings.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>include ':app'\r\nrootProject.name='textGradle'\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- settings.gradle	(revision 0a897ed381f287acb3a65d9fe1bf750fffdc22dd)
++++ settings.gradle	(date 1619545932664)
+@@ -1,2 +1,3 @@
++include ':plugin'
+ include ':app'
+ rootProject.name='textGradle'
+Index: plugin/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- plugin/build.gradle	(date 1619546677204)
++++ plugin/build.gradle	(date 1619546677204)
+@@ -0,0 +1,19 @@
++apply plugin: 'java'
++apply plugin: 'groovy'
++apply plugin: 'maven'
++
++dependencies {
++    compile gradleApi()
++    compile localGroovy()
++}
++
++group = 'com.plugin'
++version = '1.0.0'
++
++uploadArchives {
++    repositories {
++        mavenDeployer {
++            repository(url: uri('../repo'))
++        }
++    }
++}
+\ No newline at end of file
+Index: plugin/src/main/groovy/com/plugin/TextPlugin.groovy
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- plugin/src/main/groovy/com/plugin/TextPlugin.groovy	(date 1619546091423)
++++ plugin/src/main/groovy/com/plugin/TextPlugin.groovy	(date 1619546091423)
+@@ -0,0 +1,14 @@
++package com.plugin
++
++import org.gradle.api.Plugin
++import org.gradle.api.Project
++
++public class TextPlugin implements Plugin<Project> {
++    void apply(Project project) {
++        project.task('hello') {
++            doLast {
++                println "Hello World from the DemoPlugin"
++            }
++        }
++    }
++}
+Index: plugin/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- plugin/.gitignore	(date 1619545931574)
++++ plugin/.gitignore	(date 1619545931574)
+@@ -0,0 +1,1 @@
++/build
+\ No newline at end of file
+Index: repo/com/plugin/plugin/maven-metadata.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- repo/com/plugin/plugin/maven-metadata.xml	(date 1619546371175)
++++ repo/com/plugin/plugin/maven-metadata.xml	(date 1619546371175)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<metadata>
++  <groupId>com.plugin</groupId>
++  <artifactId>plugin</artifactId>
++  <versioning>
++    <release>1.0.0</release>
++    <versions>
++      <version>1.0.0</version>
++    </versions>
++    <lastUpdated>20210427175931</lastUpdated>
++  </versioning>
++</metadata>
+diff --git plugin/consumer-rules.pro plugin/consumer-rules.pro
+new file mode 100644

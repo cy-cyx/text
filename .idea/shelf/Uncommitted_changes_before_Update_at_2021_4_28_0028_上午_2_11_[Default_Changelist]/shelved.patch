@@ -1,0 +1,30 @@
+Index: repo/com/plugin/plugin/1.0.0/plugin-1.0.0.jar.md5
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- repo/com/plugin/plugin/1.0.0/plugin-1.0.0.jar.md5	(date 1619546371155)
++++ repo/com/plugin/plugin/1.0.0/plugin-1.0.0.jar.md5	(date 1619546371155)
+@@ -0,0 +1,1 @@
++759ac7b9f015ceef84bf1b1b2344febf
+\ No newline at end of file
+Index: repo/com/plugin/plugin/maven-metadata.xml.sha1
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- repo/com/plugin/plugin/maven-metadata.xml.sha1	(date 1619546371175)
++++ repo/com/plugin/plugin/maven-metadata.xml.sha1	(date 1619546371175)
+@@ -0,0 +1,1 @@
++ac9e5872e93c53e1251e23fb538587e8a0e68c93
+\ No newline at end of file
+Index: repo/com/plugin/plugin/maven-metadata.xml.md5
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- repo/com/plugin/plugin/maven-metadata.xml.md5	(date 1619546371175)
++++ repo/com/plugin/plugin/maven-metadata.xml.md5	(date 1619546371175)
+@@ -0,0 +1,1 @@
++eea1b623c5b3770f9882376614ad1b2d
+\ No newline at end of file
